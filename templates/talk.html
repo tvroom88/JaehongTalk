@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jaehong's talk</title>
+     <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+   $(document).ready(function(){
+   $("#texts").bind("keydown", function(e) {
+    if (e.keyCode == 13) {
+
+{#            var texts = document.getElementById("texts");#}
+{#            var chatSpace = document.getElementById("chatting");#}
+{##}
+{#            var addTR = document.createElement("tr");#}
+{#            var addText = document.createTextNode(texts.value);#}
+{#            addTR.appendChild(addText);#}
+{##}
+{#            chatSpace.appendChild(addTR);#}
+{#            texts.value='';#}
+            var texts = $('#texts')
+            var addTr = document.createElement("tr");
+            var addText = document.createTextNode(texts.value);
+            addTr.appendChild(addText)
+            $("#chatting").append(addTr);
+            $("#texts").val('');
+            }
+        });
+    });
+    </script>
+</head>
+
+
+<body>
+<div width="800">
+<h1>재홍 톡</h1>
+<table   border="1" cellpadding="0" cellspacing="0" width="800"  id="chatting" style="height: 300px">
+
+</table>
+<input type="text" width="50dp" style="width: 300px" id="texts">
+<input type="submit" value="전송" onclick="sendMessage()">
+
+</div>
+
+<script>
+    function sendMessage(){
+        var texts = document.getElementById("texts");
+        var chatSpace = document.getElementById("chatting");
+
+        console.log(texts.value);
+        console.log(chatSpace);
+
+        var addTR = document.createElement("TR");
+        var addText = document.createTextNode(texts.value);
+        addTR.appendChild(addText)
+        chatSpace.appendChild(addTR);
+
+        texts.value = '';
+    }
+
+     function enter(){
+
+         if(event.keyCode==13){
+            var texts = document.getElementById("texts");
+            var chatSpace = document.getElementById("chatting");
+
+            var addTR = document.createElement("tr");
+            var addText = document.createTextNode(texts.value);
+            addTR.appendChild(addText);
+
+            chatSpace.appendChild(addTR);
+            texts.value="";
+
+            }
+     }
+</script>
+</body>
+</html>
